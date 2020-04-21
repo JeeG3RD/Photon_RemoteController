@@ -47,6 +47,7 @@ public class loading_connect : MonoBehaviour
         /**
         * Puis on appelle la création ou la connexion à une Room photon (salon de jeu)
         */
+        Debug.Log("Try connecting to room...");
         PhotonNetwork.JoinOrCreateRoom(roomName, roomOptions, TypedLobby.Default);
     }
 
