@@ -15,7 +15,7 @@ public class player_controls : MonoBehaviour
         isForward = false;
         isBack = false;
         isLeft = false;
-        isRight = true;
+        isRight = false;
         isFalling = false;
         jumpSpeed = 3.35f;
         walkSpeed = 3.5f;
@@ -26,6 +26,18 @@ public class player_controls : MonoBehaviour
     {
         if (this.isForward == true) {
             GetComponent<Rigidbody>().velocity = transform.forward * walkSpeed;
+        }
+
+        if (this.isBack == true) {
+            GetComponent<Rigidbody>().velocity = -transform.forward * walkSpeed;
+        }
+
+        if (this.isLeft == true) {
+            GetComponent<Rigidbody>().velocity = -transform.right * walkSpeed;
+        }
+
+        if (this.isRight == true) {
+            GetComponent<Rigidbody>().velocity = transform.right * walkSpeed;
         }
     }
 
@@ -48,6 +60,37 @@ public class player_controls : MonoBehaviour
     public void onForwardUp()
     {
         this.isForward = false;
+    }
+
+    public void onLeftDown()
+    {
+        this.isLeft = true;
+    }
+
+    public void onLeftUp()
+    {
+        this.isLeft = false;
+    }
+
+    
+    public void onRightDown()
+    {
+        this.isRight = true;
+    }
+
+    public void onRightUp()
+    {
+        this.isRight = false;
+    }
+
+    public void onBackDown()
+    {
+        this.isBack = true;
+    }
+
+    public void onBackUp()
+    {
+        this.isBack = false;
     }
 
     void OnCollisionStay(Collision floor) {
