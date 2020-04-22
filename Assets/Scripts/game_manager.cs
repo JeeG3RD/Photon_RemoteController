@@ -18,8 +18,7 @@ public class game_manager : MonoBehaviour
 
     void OnPhotonPlayerConnected()
     {
-            Debug.Log("Player Connected");
-        onPlayerJoin();
+        
     }
 
     void onPlayerJoin() {
@@ -27,7 +26,7 @@ public class game_manager : MonoBehaviour
             Vector3 sp;
             
             //Point d'apparition dans la scene
-            sp = new Vector3(0, 2, 0);
+            sp = new Vector3(Random.Range(-15.0f, 15.0f), 2, Random.Range(-15.0f, 15.0f));
 
             GameObject myPlayer;
             myPlayer = PhotonNetwork.Instantiate("player", sp, Quaternion.identity, 0);

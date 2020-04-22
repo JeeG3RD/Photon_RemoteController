@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class player_controls : MonoBehaviour
 {
-    private bool isFalling ;
+    private bool isFalling;
     private float jumpSpeed, walkSpeed;
 
     private bool isForward, isBack, isLeft, isRight, isJump;
@@ -17,8 +17,8 @@ public class player_controls : MonoBehaviour
         isLeft = false;
         isRight = false;
         isFalling = false;
-        jumpSpeed = 3.35f;
-        walkSpeed = 3.5f;
+        jumpSpeed = 375.0f;
+        walkSpeed = 4.25f;
     }
 
     // Update is called once per frame
@@ -44,10 +44,7 @@ public class player_controls : MonoBehaviour
     public void onJumpBtn()
     {
         if (isFalling == false) {
-            Vector3 vertVelocity = GetComponent<Rigidbody>().velocity;
-            vertVelocity.y = jumpSpeed;
-            GetComponent<Rigidbody>().velocity = vertVelocity;
-
+            GetComponent<Rigidbody>().AddForce(transform.up * jumpSpeed);
             isFalling = true;
         }
     }
